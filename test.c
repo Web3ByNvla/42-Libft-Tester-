@@ -6,7 +6,7 @@
 /*   By: gunovell <gunovell@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/15 18:06:06 by novella           #+#    #+#             */
-/*   Updated: 2026/11/16 11:07:16 by gunovell         ###   ########lyon.fr   */
+/*   Updated: 2026/11/16 11:32:12 by gunovell         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -328,7 +328,7 @@ static void	test_list_functions(void)
 	ft_lstiter(list, increment_content);
 	check_condition("ft_lstiter", first_value == 2 && second_value == 3);
 	first = ft_lstnew(&front_value);
-	ft_lsadd_front(&list, first);
+	ft_lstadd_front(&list, first);
 	check_condition("ft_lsadd_front", list == first && first->next->content
 		== &first_value);
 	check_condition("ft_lstsize after front insert", ft_lstsize(list) == 3);
