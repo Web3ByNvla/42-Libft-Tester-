@@ -1,17 +1,14 @@
 NAME = test
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-LIBFT_DIR = ../Libft_42
-LIBFT = $(LIBFT_DIR)/libft.a
-INCLUDES = -I$(LIBFT_DIR)/includes
+LIBFT_DIR = ../Libft_novella
+LIBFT_SRCS = $(wildcard $(LIBFT_DIR)/ft_*.c)
+INCLUDES = -I$(LIBFT_DIR)
 
 all: $(NAME)
 
-$(NAME): test.c $(LIBFT)
-	$(CC) $(CFLAGS) $(INCLUDES) test.c $(LIBFT) -o $(NAME)
-
-$(LIBFT): $(wildcard $(LIBFT_DIR)/srcs/*.c) $(LIBFT_DIR)/includes/libft.h
-	$(MAKE) -C $(LIBFT_DIR)
+$(NAME): test.c $(LIBFT_SRCS) $(LIBFT_DIR)/libft.h
+	$(CC) $(CFLAGS) $(INCLUDES) test.c $(LIBFT_SRCS) -o $(NAME)
 
 run: $(NAME)
 	./$(NAME)
